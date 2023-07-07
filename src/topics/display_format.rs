@@ -47,3 +47,43 @@ pub fn display_format_fun()
     println!("Display: {}", point);
     println!("Debug: {:?}", point);
 }
+
+/*
+use std::fmt;
+
+struct Person {
+    name: String,
+    age: u32,
+}
+
+impl fmt::Debug for Person {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "Person {{ name: {}, age: {} }}", self.name, self.age)
+    }
+}
+
+impl fmt::Display for Person {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "Name: {}, Age: {}", self.name, self.age)
+    }
+}
+
+fn main() {
+    let person = Person {
+        name: String::from("Alice"),
+        age: 25,
+    };
+
+    println!("{:?}", person);  // Output: Person { name: Alice, age: 25 }
+    println!("{}", person);    // Output: Name: Alice, Age: 25
+}
+In the example above, the Person struct implements both Debug and Display. The Debug implementation provides a formatted representation with additional debugging information, whereas the Display implementation offers a more user-friendly representation.
+
+By implementing the Debug trait, you enable the {:?} format specifier and the dbg! macro to print the debug representation of the value.
+
+On the other hand, implementing the Display trait allows you to format the value using {} in formatting macros, making it suitable for user-facing output.
+
+Both Debug and Display traits are powerful tools for formatting values in Rust, and they serve different purposes depending on whether you're targeting developers or end users.
+
+
+*/

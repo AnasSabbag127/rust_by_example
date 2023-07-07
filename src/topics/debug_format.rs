@@ -6,6 +6,13 @@ struct Structure(f32);
 #[derive(Debug)]
 struct Deep(Structure);
 
+// #[derive(Debug)]
+// struct Person<'a> {
+//     name: &'a str,
+//     age: i32
+// }
+
+
 pub fn debug_format_fun()
 {
     // Printing with `{:?}` is similar to with `{}`.
@@ -22,19 +29,14 @@ pub fn debug_format_fun()
     // the results look. What if I want this to just show a `7`?
     println!("Now {:?} will print!", Deep(Structure(7.3)));
 
-}
-#[derive(Debug)]
-struct Person<'a> {
-    name: &'a str,
-    age: i32
+
+    /*because it requires impl display macro prelude */
+    // let name = "Peter";
+    // let age = 27;
+    // let peter = Person { name, age };
+    // // Pretty print
+    // println!(" for pretty print : {:#?}", peter);
+
+
 }
 
-pub fn debug_format_fun2()
-{
-    let name = "Peter";
-    let age = 27;
-    let peter = Person { name, age };
-    // Pretty print
-    println!("{:#?}", peter);
-    
-}
