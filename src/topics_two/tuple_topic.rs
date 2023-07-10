@@ -19,7 +19,7 @@ pub fn tuple_fun()
 
     println!("{:?}, {:?}, {:?} , {:?} ", a, b, c, d);
     
-    //slice operation are not support by tuple because of discontinuous memory for items
+    // slice operation are not support by tuple because of discontinuous memory for items
     // let tuple_slice = &tuple[..2];
 
 

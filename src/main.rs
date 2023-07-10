@@ -2,6 +2,10 @@ mod topics;
 mod topics_two;
 use topics::{hello_word,debug_format,display_format};
 use topics_two::{array_topic, tuple_topic, literal_topic};
+mod structure;
+mod enums;
+use structure::struct_type;
+use crate::enums::enum_example;
 use std::env;
 fn main() {
 
@@ -12,12 +16,18 @@ let list_topic1 = r#"1. debug_format_fn
 
 
 
-let topic = "primitives";
+
+
 let list_topic2:&str = r#"1.array
 2.literal and operator
 3.tuple "#;
+let topic_list3 = r#"1.structure
+2.Enum
+3.constant"#;
 
-match topic{
+let current_topic = "custom_type";
+
+match current_topic{
    "hello_world" => {
             match args[1].as_str() {
                 "debug_format_fn" =>   { debug_format::debug_format_fun(); },
@@ -36,6 +46,15 @@ match topic{
                 "list" => { println!("{list_topic2}"); },
                 _ => {println!("enter function name ")},//default 
             }
+        },
+    "custom_type" => { 
+            match args[1].as_str(){
+                "struct_fun" => { struct_type::struct_fun(); },
+                "enum_fun" => { enum_example::enum_fun(); }
+                "list" => { println!("topic_list: {:?}",topic_list3); },
+                _  => { println!("Invalid arguement .");}
+            }
+        
         },
         _ => {println!("invalid topic name ");}
     }
