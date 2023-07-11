@@ -5,8 +5,14 @@ use topics_two::{array_topic, tuple_topic, literal_topic};
 mod structure;
 mod enums;
 use structure::struct_type;
-use crate::enums::enum_example;
+use crate::enums::enum_example;//crate represent from root path to given path
+mod topics_four;
+use topics_four::{mutability_var,scope_and_shadow};
+
 use std::env;
+
+
+
 fn main() {
 
 let args: Vec<String> = env::args().collect();
@@ -25,7 +31,12 @@ let topic_list3 = r#"1.structure
 2.Enum
 3.constant"#;
 
-let current_topic = "custom_type";
+let topic_list4=r#"1.mutablitiy
+2.scope shadowing
+3.Declair first
+4.Freezing "#;
+
+let current_topic = "variable_binding";
 
 match current_topic{
    "hello_world" => {
@@ -56,7 +67,18 @@ match current_topic{
             }
         
         },
-        _ => {println!("invalid topic name ");}
+    "variable_binding" => { 
+        match args[1].as_str(){
+            "mutability_fun" => { mutability_var::mutability_fun();},
+            "scope_and_shadowing_fun" => {scope_and_shadow::scope_and_shadow_fun(); }
+            "list" => { println!("topic_list: {:?}",topic_list4); },
+            _  => { println!("Invalid arguement .");}
+        }
+    
+    },
+
+    _ => {println!("invalid topic name ");}
+    
     }
 
 
