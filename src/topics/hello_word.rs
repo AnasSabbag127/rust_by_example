@@ -1,8 +1,3 @@
-// pub fn greet()
-// {
-//     println!("hello rust !!");
-// }
-
 pub fn hello_world_fun()
 {
     println!("{} days", 31);
