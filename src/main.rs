@@ -11,6 +11,8 @@ mod topics_four;
 use topics_four::{mutability_var,scope_and_shadow};
 mod topics_five;
 use topics_five::{type_cast,from_and_into,to_and_from_strings,try_from_and_try_into};
+mod topics_six;
+use topics_six::{expression,flow_control,loops,for_and_while_loops};
 use std::env;
 
 
@@ -43,7 +45,11 @@ let topic_list5=r#"1.type casting
 3.TryFrom and TryInto
 4.To and from Strings "#;
 
-let current_topic = "conversion";
+let topic_list6 =r#"1.Expression
+2.Flow Control: if/else ,match, if let ,else let ,while let 
+3.Loops::{ while ,for , loop}"#;
+
+let current_topic = "flow_control";
 
 match current_topic{
    "hello_world" => {
@@ -82,7 +88,7 @@ match current_topic{
         }
     },
     "conversion" =>{
-        match args[1].as_str(){//.....work here...
+        match args[1].as_str(){
             "type_cast_fun" => { type_cast::type_cast_fun();},
             "from_and_into_fun" => { from_and_into::from_and_into_fun(); },
             "TryFrom_and_TryInto_fun" => { try_from_and_try_into::try_from_and_try_into_fun();}
@@ -91,8 +97,18 @@ match current_topic{
             _  => { println!("Invalid arguement .");}
         }
     },
+    "flow_control" =>{
+        match args[1].as_str(){//.....work here...
+            "expression_fun" => {expression::expression_fun();},
+            "flow_control" => {flow_control::flow_control_funs();},
+            "loops" => {loops::loop_funs();},
+            "for_and_while_loop" => {for_and_while_loops::for_and_while_loops_fun();},
+            "list" => { println!("topic_list6: {:?}",topic_list6); },
+            _  => { println!("Invalid arguement .");}
+        }
+    },
 
-    _ => {println!("invalid topic name ");}
+    _ => { println!("invalid topic name "); }
     
     }
 
