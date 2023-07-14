@@ -66,7 +66,10 @@ fn simple_match(){
 pub fn flow_control_funs()
 {
     println!("this is flow control function ");
+    
     if_else_fun();
     simple_match();
+
+
 
 }

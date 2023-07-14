@@ -13,6 +13,10 @@ mod topics_five;
 use topics_five::{type_cast,from_and_into,to_and_from_strings,try_from_and_try_into};
 mod topics_six;
 use topics_six::{expression,flow_control,loops,for_and_while_loops};
+mod matches;
+use matches::{bindings,guards,destructing};
+
+
 use std::env;
 
 
@@ -49,7 +53,12 @@ let topic_list6 =r#"1.Expression
 2.Flow Control: if/else ,match, if let ,else let ,while let 
 3.Loops::{ while ,for , loop}"#;
 
-let current_topic = "flow_control";
+let current_topic = "matches";
+
+let topic_list7 =r#"1.destructing {tuple,array,enum,struct}
+2.Guards
+3.bindings "#;
+
 
 match current_topic{
    "hello_world" => {
@@ -98,7 +107,7 @@ match current_topic{
         }
     },
     "flow_control" =>{
-        match args[1].as_str(){//.....work here...
+        match args[1].as_str(){
             "expression_fun" => {expression::expression_fun();},
             "flow_control" => {flow_control::flow_control_funs();},
             "loops" => {loops::loop_funs();},
@@ -107,7 +116,15 @@ match current_topic{
             _  => { println!("Invalid arguement .");}
         }
     },
-
+    "matches" =>{
+        match args[1].as_str(){//.....work here...
+            "destructing" => {destructing::destructing_fun();},
+            "guards" => {guards::guards_fun();},
+            "bindings" => {bindings::bindings_fun();},
+            "list" => { println!("topic_list7: {:?}",topic_list7); },
+            _  => { println!("Invalid arguement .");}
+        }
+    },
     _ => { println!("invalid topic name "); }
     
     }

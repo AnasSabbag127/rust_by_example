@@ -73,5 +73,4 @@ pub fn loop_funs(){
     single_loop();
     nesting_and_label_loops();
     returning_from_loop();
-
 }
