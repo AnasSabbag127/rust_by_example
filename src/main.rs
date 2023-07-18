@@ -15,7 +15,8 @@ mod topics_six;
 use topics_six::{expression,flow_control,loops,for_and_while_loops};
 mod matches;
 use matches::{bindings,guards,destructing,if_let,let_else,loop_while_let};
-
+mod functions;
+use functions::{methods,closuring};
 
 use std::env;
 
@@ -53,8 +54,6 @@ let topic_list6 =r#"1.Expression
 2.Flow Control: if/else ,match, if let ,else let ,while let 
 3.Loops::{ while ,for , loop}"#;
 
-let current_topic = "matches";
-
 let topic_list7 =r#"1.destructing {tuple,array,enum,struct}
 2.Guards
 3.bindings 
@@ -62,6 +61,10 @@ let topic_list7 =r#"1.destructing {tuple,array,enum,struct}
 5.let_else
 6.loop_while_let "#;
 
+let topic_list8 = r#"1.functions::methods
+2.Closures"#;
+
+let current_topic = "functions";
 
 match current_topic{
    "hello_world" => {
@@ -132,6 +135,16 @@ match current_topic{
             _  => { println!("Invalid arguement .");}
         }
     },
+    "functions" =>{
+        match args[1].as_str(){
+            "methods" => {methods::methods_fun();},
+            "closuring" => {closuring::closuring_fun();},
+            "list" => { println!(" topic_list8 : {:?}",topic_list8);},
+            _ => { println!("invalid arguement ")},
+        }
+    }
+
+
     _ => { println!("invalid topic name "); }
     
     }
