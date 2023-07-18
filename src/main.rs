@@ -14,7 +14,7 @@ use topics_five::{type_cast,from_and_into,to_and_from_strings,try_from_and_try_i
 mod topics_six;
 use topics_six::{expression,flow_control,loops,for_and_while_loops};
 mod matches;
-use matches::{bindings,guards,destructing};
+use matches::{bindings,guards,destructing,if_let,let_else,loop_while_let};
 
 
 use std::env;
@@ -57,7 +57,10 @@ let current_topic = "matches";
 
 let topic_list7 =r#"1.destructing {tuple,array,enum,struct}
 2.Guards
-3.bindings "#;
+3.bindings 
+4.if_let
+5.let_else
+6.loop_while_let "#;
 
 
 match current_topic{
@@ -121,7 +124,11 @@ match current_topic{
             "destructing" => {destructing::destructing_fun();},
             "guards" => {guards::guards_fun();},
             "bindings" => {bindings::bindings_fun();},
+            "if_let" =>  { if_let::if_let_fun();},
+            "let_else" => { let_else::let_else_fun();},
+            "loop_while_let" => { loop_while_let::loop_while_let_fun();},       
             "list" => { println!("topic_list7: {:?}",topic_list7); },
+
             _  => { println!("Invalid arguement .");}
         }
     },
